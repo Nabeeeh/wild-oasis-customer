@@ -1,6 +1,9 @@
 import { getBookedDatesByCabinId, getCabin } from "@/app/_lib/data-service";
 
-export async function GET({ params }: { params: { cabinId: number } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: { cabinId: number } }
+) {
   const { cabinId } = params;
 
   try {
