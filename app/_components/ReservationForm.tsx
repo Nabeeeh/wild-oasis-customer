@@ -92,17 +92,13 @@ function ReservationForm({ cabin }: { cabin: ICabinDetails }) {
         </div>
 
         <div className="flex justify-end items-center gap-6">
-          <p className="text-primary-300 text-sm sm:text-base">
-            Start by selecting dates
-          </p>
-
-          <SubmitButton
-            pendingText="Reserving..."
-            startDate={startDate}
-            endDate={endDate}
-          >
-            Reserve now
-          </SubmitButton>
+          {!(startDate && endDate) ? (
+            <p className="text-primary-300 text-sm sm:text-base">
+              Start by selecting dates
+            </p>
+          ) : (
+            <SubmitButton pendingText="Reserving...">Reserve now</SubmitButton>
+          )}
         </div>
       </form>
     </div>
